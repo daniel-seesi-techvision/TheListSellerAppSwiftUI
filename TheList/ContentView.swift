@@ -9,80 +9,119 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-    @Environment(\.managedObjectContext) private var viewContext
-
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-        animation: .default)
-    private var items: FetchedResults<Item>
-
-    var body: some View {
-        NavigationView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                    } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
-                    }
-                }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
-            Text("Select an item")
-        }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            offsets.map { items[$0] }.forEach(viewContext.delete)
-
-            do {
-                try viewContext.save()
-            } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
+	@State private var capturedPhoto: UIImage? = nil
+	@State private var isCameraViewPresented = false;
+	@State private var isFeedActive = true
+	@State private var hasCollection = false;
+	init() {
+		//		let navBarAppearance = UINavigationBar.appearance()
+		//		navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
+		//		navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.black]
+	}
+	var body: some View {
+		NavigationView {
+			VStack{
+				Spacer()
+				Text("Test Middle")
+				Spacer()
+				HStack (spacing: 0 ){
+					Button(action: {
+						isFeedActive = true
+					}, label: {
+						Text("MY FEED")
+							.font(.system(size: 18))
+							.fontWeight(.bold)
+							.frame(maxWidth: .infinity, maxHeight: 70)
+							.overlay(
+								Rectangle()
+									.frame(height: 1)
+									.foregroundColor(isFeedActive ? .black: .gray),
+								alignment: .bottom
+							)
+					}).tint(isFeedActive ? .black : .gray)
+					
+					Button(action: {
+						isFeedActive = false;
+					}, label:{
+						Text("MY PRODUCTS")
+							.font(.system(size: 18))
+							.fontWeight(.bold)
+							.frame(maxWidth: .infinity, maxHeight: 70)
+							.overlay(
+								Rectangle()
+									.frame(height: 1)
+									.foregroundColor(isFeedActive ? .gray: .black),
+								alignment: .bottom
+							)
+					}).tint(isFeedActive ? .gray : .black)
+				}
+				Spacer()
+				if(isFeedActive){
+					if(hasCollection){
+						// Setup collectionview
+					}else{
+						VStack{
+							Text("Your Feed Is Still Empty")
+								.font(.system(size: 16))
+								.fontWeight(.bold)
+								.foregroundColor(Color.gray)
+							Text("Upload your content by tapping on \"+\" to promote your product and keep customer and visitors updated on new arrivals")
+								.font(.system(size: 14))
+								.fontWeight(.regular)
+								.foregroundColor(Color.gray)
+								.padding([.top],5)
+								.padding([.leading, .trailing])
+						}
+					}
+				}else{
+					
+				}
+				Spacer()
+				HStack(){
+					Spacer()
+					Button(action: {}, label: {Image("home")}).padding()
+					Button(action: {}, label: {Image("hanger")}).padding()
+					Button(action: {}, label: {Image("shutter")}).padding()
+					Button(action: {}, label: {Image("request")}).padding()
+					Button(action: {}, label: {Image("package")}).padding()
+					Spacer()
+				}
+				.background(Color.gray)
+				.cornerRadius(45)
+				.padding()
+			}
+			.background(Color.white)
+			.navigationTitle("Store")
+			.preferredColorScheme(.light)
+			.navigationBarTitleDisplayMode(.inline)
+			.toolbar {
+				ToolbarItem(placement: .navigationBarLeading){
+					NavButton(image: "settings",action: {
+					})
+				}
+				ToolbarItem(){
+					NavButton(image: "inbox",action:{
+					})
+				}
+				ToolbarItem(placement: .navigationBarTrailing){
+					NavigationLink(destination: CameraView(capturedPhoto: $capturedPhoto),isActive: $isCameraViewPresented) {
+						NavButton(image: "video",action: {
+							self.isCameraViewPresented = true;
+						})
+					}
+				}
+			}
+			//			.background(Color.white)
+		}
+	}
+	
+	private func addItem() {
+	}
 }
 
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-    }
+	static var previews: some View {
+		ContentView()
+	}
 }
