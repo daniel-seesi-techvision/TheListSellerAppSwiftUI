@@ -9,10 +9,7 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-	@State private var capturedPhoto: UIImage? = nil
-	@State private var isCameraViewPresented = false;
-	@State private var isFeedActive = true
-	@State private var hasCollection = false;
+	@StateObject private var vm = ViewModel()
 	init() {
 		//		let navBarAppearance = UINavigationBar.appearance()
 		//		navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
@@ -20,13 +17,12 @@ struct ContentView: View {
 	}
 	var body: some View {
 		NavigationView {
-			VStack{
+			VStack {
 				Spacer()
-				Text("Test Middle")
-				Spacer()
+				Text("Milan")
 				HStack (spacing: 0 ){
 					Button(action: {
-						isFeedActive = true
+						vm.setFeedActive()
 					}, label: {
 						Text("MY FEED")
 							.font(.system(size: 18))
@@ -35,13 +31,13 @@ struct ContentView: View {
 							.overlay(
 								Rectangle()
 									.frame(height: 1)
-									.foregroundColor(isFeedActive ? .black: .gray),
+									.foregroundColor(vm.isFeedActive ? .black: .gray),
 								alignment: .bottom
 							)
-					}).tint(isFeedActive ? .black : .gray)
+					}).tint(vm.isFeedActive ? .black : .gray)
 					
 					Button(action: {
-						isFeedActive = false;
+						vm.setProductActive()
 					}, label:{
 						Text("MY PRODUCTS")
 							.font(.system(size: 18))
@@ -50,14 +46,14 @@ struct ContentView: View {
 							.overlay(
 								Rectangle()
 									.frame(height: 1)
-									.foregroundColor(isFeedActive ? .gray: .black),
+									.foregroundColor(vm.isFeedActive ? .gray: .black),
 								alignment: .bottom
 							)
-					}).tint(isFeedActive ? .gray : .black)
+					}).tint(vm.isFeedActive ? .gray : .black)
 				}
 				Spacer()
-				if(isFeedActive){
-					if(hasCollection){
+				if(vm.isFeedActive){
+					if(vm.hasCollection){
 						// Setup collectionview
 					}else{
 						VStack{
@@ -74,8 +70,8 @@ struct ContentView: View {
 						}
 					}
 				}else{
-					
-				}
+					Text("No Products")
+					}
 				Spacer()
 				HStack(){
 					Spacer()
@@ -104,18 +100,14 @@ struct ContentView: View {
 					})
 				}
 				ToolbarItem(placement: .navigationBarTrailing){
-					NavigationLink(destination: CameraView(capturedPhoto: $capturedPhoto),isActive: $isCameraViewPresented) {
+					NavigationLink(destination: CameraView(),isActive: $vm.isCameraViewPresented) {
 						NavButton(image: "video",action: {
-							self.isCameraViewPresented = true;
+							vm.showCamera()
 						})
 					}
 				}
 			}
-			//			.background(Color.white)
 		}
-	}
-	
-	private func addItem() {
 	}
 }
 

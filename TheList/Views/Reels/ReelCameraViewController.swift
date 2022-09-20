@@ -16,6 +16,10 @@ struct ReelCameraViewController: UIViewControllerRepresentable {
 	let didFinishProcessingPhoto: (Result<AVCapturePhoto,Error>) -> ()
 	
 	func makeUIViewController(context: Context) -> UIViewController {
+		let viewController = UIViewController()
+		viewController.view.backgroundColor = .black
+		
+		cameraService.parentView = viewController.view
 		
 		cameraService.startSession(delegate: context.coordinator, completion: {err in
 			if let err  = err {
@@ -24,10 +28,8 @@ struct ReelCameraViewController: UIViewControllerRepresentable {
 			}
 		})
 		
-		let viewController = UIViewController()
-		viewController.view.backgroundColor = .black
-		viewController.view.layer.addSublayer(cameraService.previewCameraLayer)
-		cameraService.previewCameraLayer.frame = viewController.view.bounds
+//		viewController.view.layer.addSublayer(cameraService.previewCameraLayer)
+		cameraService.previewCameraLayer!.frame = viewController.view.bounds
 		return viewController;
 	}
 	

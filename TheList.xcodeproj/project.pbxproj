@@ -18,6 +18,8 @@
 		0B96D30C28D9B20200932B72 /* ReelCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96D30B28D9B20200932B72 /* ReelCameraViewController.swift */; };
 		0B96D30F28D9B28900932B72 /* CameraService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96D30E28D9B28900932B72 /* CameraService.swift */; };
 		0B96D31128D9BDC200932B72 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96D31028D9BDC200932B72 /* CameraView.swift */; };
+		0B96D31428DA147900932B72 /* ContentView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96D31328DA147900932B72 /* ContentView-ViewModel.swift */; };
+		0B96D31628DA18B600932B72 /* CameraView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96D31528DA18B600932B72 /* CameraView-ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		0B96D30E28D9B28900932B72 /* CameraService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraService.swift; sourceTree = "<group>"; };
 		0B96D31028D9BDC200932B72 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		0B96D31228D9E3E200932B72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		0B96D31328DA147900932B72 /* ContentView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView-ViewModel.swift"; sourceTree = "<group>"; };
+		0B96D31528DA18B600932B72 /* CameraView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraView-ViewModel.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,10 +70,12 @@
 		0B96D2ED28D9461B00932B72 /* TheList */ = {
 			isa = PBXGroup;
 			children = (
+				0B96D31728DA25B500932B72 /* Utils */,
 				0B96D31228D9E3E200932B72 /* Info.plist */,
 				0B96D30728D9B10F00932B72 /* Views */,
 				0B96D2EE28D9461B00932B72 /* TheListApp.swift */,
 				0B96D2F028D9461B00932B72 /* ContentView.swift */,
+				0B96D31328DA147900932B72 /* ContentView-ViewModel.swift */,
 				0B96D2F228D9461C00932B72 /* Assets.xcassets */,
 				0B96D2F928D9461C00932B72 /* TheList.xcdatamodeld */,
 				0B96D2F428D9461C00932B72 /* Preview Content */,
@@ -110,8 +116,16 @@
 				0B96D30B28D9B20200932B72 /* ReelCameraViewController.swift */,
 				0B96D30E28D9B28900932B72 /* CameraService.swift */,
 				0B96D31028D9BDC200932B72 /* CameraView.swift */,
+				0B96D31528DA18B600932B72 /* CameraView-ViewModel.swift */,
 			);
 			path = Reels;
+			sourceTree = "<group>";
+		};
+		0B96D31728DA25B500932B72 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,6 +205,8 @@
 				0B96D2FB28D9461C00932B72 /* TheList.xcdatamodeld in Sources */,
 				0B96D2F128D9461B00932B72 /* ContentView.swift in Sources */,
 				0B96D2EF28D9461B00932B72 /* TheListApp.swift in Sources */,
+				0B96D31428DA147900932B72 /* ContentView-ViewModel.swift in Sources */,
+				0B96D31628DA18B600932B72 /* CameraView-ViewModel.swift in Sources */,
 				0B96D30228D9537700932B72 /* NavButton.swift in Sources */,
 				0B96D30428D974F700932B72 /* FloatingButton.swift in Sources */,
 			);
