@@ -13,7 +13,7 @@ extension ProductListView{
 	
 	@MainActor class ViewModel : ObservableObject {
 		@Published var products = [ProductData]()
-		@Published var filteredProduct = [ProductData]()
+		@Published var filteredProducts = [ProductData]()
 				
 		func getProducts() async {
 			let entities = getAllProducts()
@@ -21,7 +21,6 @@ extension ProductListView{
 				await loadProduct();
 			}else{
 				products = getProductsFromDatabase(entities)
-				filteredProduct = products
 			}
 		}
 		
@@ -41,7 +40,6 @@ extension ProductListView{
 				// Serialize data into object
 				if let response = try? JSONDecoder().decode([ProductDto].self, from: data){
 					products = createProducts(dtos: response)
-					filteredProduct = products
 					print("Fetch Success:")
 				}else{
 					print("Serialization failed:")
@@ -70,7 +68,7 @@ extension ProductListView{
 		
 		func filterProduct(_ search: String){
 			if(search == ""){
-				filteredProduct = products
+				filteredProducts = products
 				return
 			}
 			var array = [ProductData]()
@@ -83,7 +81,27 @@ extension ProductListView{
 					
 				}
 			}
-			filteredProduct = array
+			filteredProducts = array
+		}
+		
+		func setSelectedProducts(_ selectedProducts: Binding<[ProductData]>){
+			// This is a hack to set products that have already be selected previous when showing sheet of list of product
+			var innerProducts = [ProductData]()
+			
+			for product in products {
+				var pro = product
+				for selProd in selectedProducts {
+					pro.selected = selProd.id == product.id
+					if pro.selected{
+						break
+					}
+				}
+				innerProducts.append(pro)
+			}
+			
+			
+			products = innerProducts
+			filteredProducts = products
 		}
 	}
 	

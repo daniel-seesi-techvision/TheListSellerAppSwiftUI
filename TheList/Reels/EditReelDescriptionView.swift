@@ -15,6 +15,7 @@ struct EditReelDescriptionView: View {
 	@Binding var isModalPresented: Bool
 	@State var innerDescription = ""
 	@State private var charactersRemaining = 140
+	var completion: ()-> Void
 	func getRemainingCharacterLength() {
 		self.charactersRemaining = 140 - innerDescription.count
 	}
@@ -25,8 +26,10 @@ struct EditReelDescriptionView: View {
 			HStack{
 				Spacer()
 				FloatingButton(image: "close",tapAction: {
+					completion()
 					self.viewControllerHolder?.dismiss(animated: true, completion: {
-						self.isModalPresented = false;
+						self.isModalPresented = false
+						completion()
 					})
 				})
 				.padding([.trailing,.top])
@@ -58,8 +61,9 @@ struct EditReelDescriptionView: View {
 			}
 			Button(action: {
 				self.viewControllerHolder?.dismiss(animated: true, completion: {
-					self.description = innerDescription;
-					self.isModalPresented = false;
+					self.description = innerDescription
+					self.isModalPresented = false
+					completion()
 				})
 			},label: {
 				Image("check")

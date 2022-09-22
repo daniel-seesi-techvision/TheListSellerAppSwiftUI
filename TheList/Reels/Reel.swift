@@ -7,8 +7,7 @@
 
 import Foundation
 struct Reel : Identifiable {
-	var id: Int? = nil
+	var id: UUID? = nil
 	var imageUrl: String? = nil
 	var description: String = ""
-	var linkedProduct: [LinkedProduct] = [LinkedProduct()]
 }

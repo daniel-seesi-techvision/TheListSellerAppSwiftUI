@@ -9,8 +9,18 @@ import SwiftUI
 
 struct ProductListView: View {
 	@Environment(\.dismiss) var dismiss
+	@Binding var linkedProducts: [ProductData]
+	var completion: ()-> Void
 	@StateObject private var vm = ViewModel()
 	@State private var searchText = ""
+	
+	func saveLinkedProducts(){
+		linkedProducts = self.vm.products.filter({product in
+			return product.selected
+		})
+		completion()
+	}
+													
 	var body: some View {
 		VStack{
 			ZStack (alignment: .center){
@@ -21,6 +31,7 @@ struct ProductListView: View {
 				HStack{
 					Spacer()
 					Button(action: {
+						saveLinkedProducts()
 						dismiss()
 					},label: {
 						Image("close-black")
@@ -41,7 +52,8 @@ struct ProductListView: View {
 			.background(Color(UIColor(displayP3Red: 0, green: 0, blue: 0, alpha: 0.05)))
 			.padding([.leading,.trailing],20)
 			.cornerRadius(3)
-			List(vm.filteredProduct, id: \.id){ item in
+			
+			List(vm.filteredProducts, id: \.id){ item in
 				VStack(alignment: .leading){
 					HStack{
 						AsyncImage(url: URL(string: item.imageUrl)) { image in
@@ -71,11 +83,15 @@ struct ProductListView: View {
 			}
 			.task {
 				await vm.getProducts()
+				vm.setSelectedProducts($linkedProducts)
 			}.onTapGesture {
 				UIApplication.shared.endEditing()
 			}
 			HStack{
-				Button(action: {dismiss()}, label: {
+				Button(action: {
+					saveLinkedProducts()
+					dismiss()
+				}, label: {
 					Text("SAVE SELECTION")
 						.foregroundColor(.white)
 						.font(.system(size: 16))
@@ -88,11 +104,5 @@ struct ProductListView: View {
 			.padding(20)
 			.cornerRadius(5)
 		}.background(.white)
-	}
-}
-
-struct ProductListView_Previews: PreviewProvider {
-	static var previews: some View {
-		ProductListView()
 	}
 }
