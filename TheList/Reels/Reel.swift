@@ -6,7 +6,7 @@
 //
 
 import Foundation
-struct Reel : Identifiable {
+struct Reel : Identifiable, Hashable {
 	var id: UUID? = nil
 	var imageUrl: String? = nil
 	var description: String = ""

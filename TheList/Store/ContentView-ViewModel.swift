@@ -14,7 +14,10 @@ extension ContentView{
 		@Published var isCameraViewPresented = false;
 		@Published private(set) var isFeedActive = true
 		@Published private(set) var hasCollection = false;
-		
+		@Published private(set) var reels = [Reel]()
+		init(){
+			reels = Repository.shared.getAllReels()
+		}
 		func setFeedActive() {
 			isFeedActive = true
 		}

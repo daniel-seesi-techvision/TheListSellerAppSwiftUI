@@ -15,6 +15,7 @@ struct ContentView: View {
 		//		navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
 		//		navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.black]
 	}
+	var layout = [ GridItem(.flexible(minimum: 120, maximum: 200)),GridItem(.flexible(minimum: 120, maximum: 200))]
 	var body: some View {
 		NavigationView {
 			VStack {
@@ -53,7 +54,25 @@ struct ContentView: View {
 					}).tint(vm.isFeedActive ? .gray : .black)
 				}
 				Spacer()
-				// Grid or LazyVGrid
+//				TODO Uncomment and fix loading image from file
+//				ScrollView(.horizontal) {
+//					LazyVGrid (rows: layout,){
+//						ForEach(vm.reels, id: \.self) { item in
+////							AsyncImage(url: URL(string: item.imageUrl ?? "")) { image in
+////								image
+////									.resizable()
+////									.aspectRatio(contentMode: .fill)
+////									.background(.clear)
+////							} placeholder: {
+////								ProgressView()
+////							}.padding(.horizontal)
+//							Image(uiImage: UIImage(contentsOfFile: item.imageUrl ?? "")!)
+//								.resizable()
+//								.aspectRatio(contentMode: .fill)
+//								.background(.clear)
+//						}
+//					}
+//				}
 				VStack{
 					Text("Your Feed Is Still Empty")
 						.font(.system(size: 16))

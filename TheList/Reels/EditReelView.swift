@@ -98,11 +98,9 @@ struct EditReelView: View {
 										.background(.clear)
 								} placeholder: {
 									ProgressView()
-								}
-								.padding(.horizontal)
+								}.padding(.horizontal)
 							}
 						}
-						
 					}
 					HStack{
 						Text(vm.reel.description)
@@ -142,10 +140,11 @@ struct EditReelView: View {
 					})
 				}
 				.frame(maxWidth: .infinity, maxHeight: 50, alignment: .center)
+				.cornerRadius(25)
 				.tint(vm.isValidReel ? .black : .gray )
 				.background(vm.isValidReel ? .white : .clear )
 				.border(vm.isValidReel ? .white : .gray, width: vm.isValidReel ? 0 : 1)
-				.cornerRadius(25)
+				
 				
 			}
 			.padding([.leading,.trailing],10)

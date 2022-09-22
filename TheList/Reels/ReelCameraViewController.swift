@@ -26,10 +26,11 @@ struct ReelCameraViewController: UIViewControllerRepresentable {
 				didFinishProcessingPhoto(.failure(err))
 				return
 			}
+			cameraService.previewCameraLayer!.frame = viewController.view.bounds
 		})
 		
 //		viewController.view.layer.addSublayer(cameraService.previewCameraLayer)
-		cameraService.previewCameraLayer!.frame = viewController.view.bounds
+//		cameraService.previewCameraLayer!.frame = viewController.view.bounds
 		return viewController;
 	}
 	
