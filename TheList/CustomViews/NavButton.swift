@@ -10,10 +10,10 @@ import SwiftUI
 struct NavButton: View {
 	
    var image: String
-	var action : () -> ()
+	var action : (() -> ())? = nil
     
     var body: some View {
-		 Button(action: action, label: {
+		 Button(action: action ?? { }, label: {
 			 Image(image)
 				 .aspectRatio(contentMode: .fill)
 				 .tint(.black)

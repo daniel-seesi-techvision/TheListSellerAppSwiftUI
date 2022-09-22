@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct TheListApp: App {
+	let repository = Repository.shared
     var body: some Scene {
         WindowGroup {
             ContentView()
+				  .environment(\.managedObjectContext, repository.database.viewContext)
         }
     }
 }

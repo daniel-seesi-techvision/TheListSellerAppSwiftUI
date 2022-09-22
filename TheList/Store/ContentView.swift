@@ -20,6 +20,7 @@ struct ContentView: View {
 			VStack {
 				Spacer()
 				Text("Milan")
+				Spacer()
 				HStack (spacing: 0 ){
 					Button(action: {
 						vm.setFeedActive()
@@ -52,26 +53,19 @@ struct ContentView: View {
 					}).tint(vm.isFeedActive ? .gray : .black)
 				}
 				Spacer()
-				if(vm.isFeedActive){
-					if(vm.hasCollection){
-						// Setup collectionview
-					}else{
-						VStack{
-							Text("Your Feed Is Still Empty")
-								.font(.system(size: 16))
-								.fontWeight(.bold)
-								.foregroundColor(Color.gray)
-							Text("Upload your content by tapping on \"+\" to promote your product and keep customer and visitors updated on new arrivals")
-								.font(.system(size: 14))
-								.fontWeight(.regular)
-								.foregroundColor(Color.gray)
-								.padding([.top],5)
-								.padding([.leading, .trailing])
-						}
-					}
-				}else{
-					Text("No Products")
-					}
+				// Grid or LazyVGrid
+				VStack{
+					Text("Your Feed Is Still Empty")
+						.font(.system(size: 16))
+						.fontWeight(.bold)
+						.foregroundColor(Color.gray)
+					Text("Upload your content by tapping on \"+\" to promote your product and keep customer and visitors updated on new arrivals")
+						.font(.system(size: 14))
+						.fontWeight(.regular)
+						.foregroundColor(Color.gray)
+						.padding([.top],5)
+						.padding([.leading, .trailing])
+				}.opacity(!vm.hasCollection && vm.isFeedActive ? 1 : 0)
 				Spacer()
 				HStack(){
 					Spacer()
@@ -108,6 +102,7 @@ struct ContentView: View {
 				}
 			}
 		}
+		.enableDarkStatusBar()
 	}
 }
 

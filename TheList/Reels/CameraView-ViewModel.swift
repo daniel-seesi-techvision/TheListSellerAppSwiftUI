@@ -14,7 +14,8 @@ extension CameraView{
 		
 		@Published private(set) var flashMode = AVCaptureDevice.FlashMode.off
 		@Published private(set) var flashImage = "flash-off"
-		private var capturedPhoto: UIImage? = nil
+		@Published var isEditting = false;
+		@Published var capturedPhoto: UIImage? = nil
 		
 		func toggleFlashMode(){
 			switch flashMode {
@@ -44,6 +45,7 @@ extension CameraView{
 				case .success(let photo):
 					if let data = photo.fileDataRepresentation(){
 						capturedPhoto = UIImage(data: data)
+						isEditting = true
 					}else{
 						print("Error: No image data found")
 						//TODO Alert User Friendley message

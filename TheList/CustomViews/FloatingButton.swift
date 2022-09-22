@@ -12,20 +12,26 @@ struct FloatingButton: View {
     var tapAction: (() -> Void)? = nil
     
     private func defaultAction(){
-        //        do nothing;
+        // do nothing;
     }
     var body: some View {
-		 Button(action: tapAction ?? defaultAction ) {
+		 ZStack{
+			 Button(action: {}, label: {})
+			 .frame(width: 50, height: 50, alignment: .center)
+			 .background(
+				Color(UIColor(displayP3Red: 0, green: 0, blue: 0, alpha: 0.5))
+			 )
+			 .cornerRadius(25)
 			 Image(image)
 				 .resizable()
 				 .frame(width: 25, height: 25, alignment: .center)
-				 .aspectRatio(contentMode: .fill)
 		 }
 		 .frame(width: 50, height: 50, alignment: .center)
-		 .background(
-			Color(UIColor(displayP3Red: 0, green: 0, blue: 0, alpha: 0.5))
-		 )
-		 .cornerRadius(25)
+		 .onTapGesture {
+			 if let action = tapAction {
+				 action()
+			 }
+		 }
     }
 }
 

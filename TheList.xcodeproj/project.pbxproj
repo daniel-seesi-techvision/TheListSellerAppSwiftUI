@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B6EB9AD28DA88FF008E63EC /* EditReelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6EB9AC28DA88FF008E63EC /* EditReelView.swift */; };
+		0B6EB9AF28DAFCA2008E63EC /* EditReelView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B6EB9AE28DAFCA2008E63EC /* EditReelView-ViewModel.swift */; };
 		0B96D2EF28D9461B00932B72 /* TheListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96D2EE28D9461B00932B72 /* TheListApp.swift */; };
 		0B96D2F128D9461B00932B72 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96D2F028D9461B00932B72 /* ContentView.swift */; };
 		0B96D2F328D9461C00932B72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B96D2F228D9461C00932B72 /* Assets.xcassets */; };
@@ -20,9 +22,24 @@
 		0B96D31128D9BDC200932B72 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96D31028D9BDC200932B72 /* CameraView.swift */; };
 		0B96D31428DA147900932B72 /* ContentView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96D31328DA147900932B72 /* ContentView-ViewModel.swift */; };
 		0B96D31628DA18B600932B72 /* CameraView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96D31528DA18B600932B72 /* CameraView-ViewModel.swift */; };
+		0BAC551228DB109100BBAE82 /* Reel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAC551128DB109100BBAE82 /* Reel.swift */; };
+		0BAC551428DB116500BBAE82 /* LinkedProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAC551328DB116500BBAE82 /* LinkedProduct.swift */; };
+		0BAC551628DB117400BBAE82 /* ProductDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAC551528DB117400BBAE82 /* ProductDto.swift */; };
+		0BAC551928DB171600BBAE82 /* API-Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAC551828DB171600BBAE82 /* API-Constants.swift */; };
+		0BAC551B28DB3C6A00BBAE82 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAC551A28DB3C6A00BBAE82 /* ViewExtensions.swift */; };
+		0BAC551D28DB44E400BBAE82 /* EditReelDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAC551C28DB44E400BBAE82 /* EditReelDescriptionView.swift */; };
+		0BAC552328DB712700BBAE82 /* TapToRemoveKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAC552228DB712700BBAE82 /* TapToRemoveKeyboard.swift */; };
+		0BAC552528DB714000BBAE82 /* ViewControllerHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAC552428DB714000BBAE82 /* ViewControllerHolder.swift */; };
+		0BAC552728DB93A500BBAE82 /* TextEditorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAC552628DB93A500BBAE82 /* TextEditorExtension.swift */; };
+		0BAC552A28DBC7D600BBAE82 /* ProductListView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAC552928DBC7D600BBAE82 /* ProductListView-ViewModel.swift */; };
+		0BAC552D28DBC8DB00BBAE82 /* ProductListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAC552C28DBC8DB00BBAE82 /* ProductListView.swift */; };
+		0BAC552F28DBCAAC00BBAE82 /* CheckBoxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAC552E28DBCAAC00BBAE82 /* CheckBoxButton.swift */; };
+		0BAC553228DBEA3F00BBAE82 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAC553128DBEA3F00BBAE82 /* Repository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B6EB9AC28DA88FF008E63EC /* EditReelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditReelView.swift; sourceTree = "<group>"; };
+		0B6EB9AE28DAFCA2008E63EC /* EditReelView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EditReelView-ViewModel.swift"; sourceTree = "<group>"; };
 		0B96D2EB28D9461B00932B72 /* TheList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B96D2EE28D9461B00932B72 /* TheListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheListApp.swift; sourceTree = "<group>"; };
 		0B96D2F028D9461B00932B72 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -38,6 +55,19 @@
 		0B96D31228D9E3E200932B72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0B96D31328DA147900932B72 /* ContentView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView-ViewModel.swift"; sourceTree = "<group>"; };
 		0B96D31528DA18B600932B72 /* CameraView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraView-ViewModel.swift"; sourceTree = "<group>"; };
+		0BAC551128DB109100BBAE82 /* Reel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reel.swift; sourceTree = "<group>"; };
+		0BAC551328DB116500BBAE82 /* LinkedProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedProduct.swift; sourceTree = "<group>"; };
+		0BAC551528DB117400BBAE82 /* ProductDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDto.swift; sourceTree = "<group>"; };
+		0BAC551828DB171600BBAE82 /* API-Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API-Constants.swift"; sourceTree = "<group>"; };
+		0BAC551A28DB3C6A00BBAE82 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
+		0BAC551C28DB44E400BBAE82 /* EditReelDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditReelDescriptionView.swift; sourceTree = "<group>"; };
+		0BAC552228DB712700BBAE82 /* TapToRemoveKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapToRemoveKeyboard.swift; sourceTree = "<group>"; };
+		0BAC552428DB714000BBAE82 /* ViewControllerHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerHolder.swift; sourceTree = "<group>"; };
+		0BAC552628DB93A500BBAE82 /* TextEditorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TextEditorExtension.swift; path = TheList/Reels/TextEditorExtension.swift; sourceTree = SOURCE_ROOT; };
+		0BAC552928DBC7D600BBAE82 /* ProductListView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProductListView-ViewModel.swift"; sourceTree = "<group>"; };
+		0BAC552C28DBC8DB00BBAE82 /* ProductListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListView.swift; sourceTree = "<group>"; };
+		0BAC552E28DBCAAC00BBAE82 /* CheckBoxButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxButton.swift; sourceTree = "<group>"; };
+		0BAC553128DBEA3F00BBAE82 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,15 +100,18 @@
 		0B96D2ED28D9461B00932B72 /* TheList */ = {
 			isa = PBXGroup;
 			children = (
-				0B96D31728DA25B500932B72 /* Utils */,
-				0B96D31228D9E3E200932B72 /* Info.plist */,
-				0B96D30728D9B10F00932B72 /* Views */,
-				0B96D2EE28D9461B00932B72 /* TheListApp.swift */,
-				0B96D2F028D9461B00932B72 /* ContentView.swift */,
-				0B96D31328DA147900932B72 /* ContentView-ViewModel.swift */,
-				0B96D2F228D9461C00932B72 /* Assets.xcassets */,
 				0B96D2F928D9461C00932B72 /* TheList.xcdatamodeld */,
+				0B96D31228D9E3E200932B72 /* Info.plist */,
+				0B96D2EE28D9461B00932B72 /* TheListApp.swift */,
+				0B96D2F228D9461C00932B72 /* Assets.xcassets */,
+				0BAC553028DBEA2200BBAE82 /* Data */,
 				0B96D2F428D9461C00932B72 /* Preview Content */,
+				0BAC551728DB170000BBAE82 /* Constants */,
+				0B96D30828D9B1AD00932B72 /* CustomViews */,
+				0BAC551F28DB50F700BBAE82 /* Extensions */,
+				0BAC552B28DBC88C00BBAE82 /* Products */,
+				0B96D30D28D9B26500932B72 /* Reels */,
+				0BAC551E28DB50BA00BBAE82 /* Store */,
 			);
 			path = TheList;
 			sourceTree = "<group>";
@@ -91,41 +124,77 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		0B96D30728D9B10F00932B72 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				0B96D30D28D9B26500932B72 /* Reels */,
-				0B96D30828D9B1AD00932B72 /* Custom */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		0B96D30828D9B1AD00932B72 /* Custom */ = {
+		0B96D30828D9B1AD00932B72 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
 				0B96D30128D9537700932B72 /* NavButton.swift */,
 				0B96D30528D97D9700932B72 /* MissionControlButton.swift */,
 				0B96D30328D974F700932B72 /* FloatingButton.swift */,
+				0BAC552E28DBCAAC00BBAE82 /* CheckBoxButton.swift */,
 			);
-			path = Custom;
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		0B96D30D28D9B26500932B72 /* Reels */ = {
 			isa = PBXGroup;
 			children = (
+				0BAC551328DB116500BBAE82 /* LinkedProduct.swift */,
+				0BAC551128DB109100BBAE82 /* Reel.swift */,
 				0B96D30B28D9B20200932B72 /* ReelCameraViewController.swift */,
-				0B96D30E28D9B28900932B72 /* CameraService.swift */,
 				0B96D31028D9BDC200932B72 /* CameraView.swift */,
+				0B6EB9AC28DA88FF008E63EC /* EditReelView.swift */,
+				0BAC551C28DB44E400BBAE82 /* EditReelDescriptionView.swift */,
+				0BAC552628DB93A500BBAE82 /* TextEditorExtension.swift */,
 				0B96D31528DA18B600932B72 /* CameraView-ViewModel.swift */,
+				0B6EB9AE28DAFCA2008E63EC /* EditReelView-ViewModel.swift */,
+				0B96D30E28D9B28900932B72 /* CameraService.swift */,
 			);
 			path = Reels;
 			sourceTree = "<group>";
 		};
-		0B96D31728DA25B500932B72 /* Utils */ = {
+		0BAC551728DB170000BBAE82 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				0BAC551828DB171600BBAE82 /* API-Constants.swift */,
 			);
-			path = Utils;
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		0BAC551E28DB50BA00BBAE82 /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				0B96D2F028D9461B00932B72 /* ContentView.swift */,
+				0B96D31328DA147900932B72 /* ContentView-ViewModel.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		0BAC551F28DB50F700BBAE82 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0BAC551A28DB3C6A00BBAE82 /* ViewExtensions.swift */,
+				0BAC552228DB712700BBAE82 /* TapToRemoveKeyboard.swift */,
+				0BAC552428DB714000BBAE82 /* ViewControllerHolder.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0BAC552B28DBC88C00BBAE82 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0BAC552928DBC7D600BBAE82 /* ProductListView-ViewModel.swift */,
+				0BAC551528DB117400BBAE82 /* ProductDto.swift */,
+				0BAC552C28DBC8DB00BBAE82 /* ProductListView.swift */,
+			);
+			path = Products;
+			sourceTree = "<group>";
+		};
+		0BAC553028DBEA2200BBAE82 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				0BAC553128DBEA3F00BBAE82 /* Repository.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,17 +267,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BAC552D28DBC8DB00BBAE82 /* ProductListView.swift in Sources */,
 				0B96D30F28D9B28900932B72 /* CameraService.swift in Sources */,
+				0BAC552F28DBCAAC00BBAE82 /* CheckBoxButton.swift in Sources */,
+				0BAC553228DBEA3F00BBAE82 /* Repository.swift in Sources */,
+				0BAC551228DB109100BBAE82 /* Reel.swift in Sources */,
+				0BAC551928DB171600BBAE82 /* API-Constants.swift in Sources */,
 				0B96D30C28D9B20200932B72 /* ReelCameraViewController.swift in Sources */,
+				0BAC551B28DB3C6A00BBAE82 /* ViewExtensions.swift in Sources */,
+				0B6EB9AD28DA88FF008E63EC /* EditReelView.swift in Sources */,
 				0B96D30628D97D9700932B72 /* MissionControlButton.swift in Sources */,
 				0B96D31128D9BDC200932B72 /* CameraView.swift in Sources */,
 				0B96D2FB28D9461C00932B72 /* TheList.xcdatamodeld in Sources */,
 				0B96D2F128D9461B00932B72 /* ContentView.swift in Sources */,
+				0BAC552A28DBC7D600BBAE82 /* ProductListView-ViewModel.swift in Sources */,
+				0BAC551428DB116500BBAE82 /* LinkedProduct.swift in Sources */,
+				0BAC552528DB714000BBAE82 /* ViewControllerHolder.swift in Sources */,
+				0BAC551628DB117400BBAE82 /* ProductDto.swift in Sources */,
 				0B96D2EF28D9461B00932B72 /* TheListApp.swift in Sources */,
+				0BAC551D28DB44E400BBAE82 /* EditReelDescriptionView.swift in Sources */,
 				0B96D31428DA147900932B72 /* ContentView-ViewModel.swift in Sources */,
 				0B96D31628DA18B600932B72 /* CameraView-ViewModel.swift in Sources */,
 				0B96D30228D9537700932B72 /* NavButton.swift in Sources */,
 				0B96D30428D974F700932B72 /* FloatingButton.swift in Sources */,
+				0B6EB9AF28DAFCA2008E63EC /* EditReelView-ViewModel.swift in Sources */,
+				0BAC552328DB712700BBAE82 /* TapToRemoveKeyboard.swift in Sources */,
+				0BAC552728DB93A500BBAE82 /* TextEditorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
