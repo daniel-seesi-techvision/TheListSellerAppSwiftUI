@@ -6,15 +6,26 @@
 //
 
 import Foundation
+
+// Product dto from http response
 struct ProductDto: Codable {
 	var designer: String
 	var title: String
 	var imageUrl: String
 }
 
-struct Product: Identifiable {
-	var id: UUID
+// Product struct uses in Views
+struct ProductData: Identifiable, Hashable {
+	var id: Int
 	var selected: Bool
+	var designer: String
+	var title: String
+	var imageUrl: String
+}
+
+// Product entity saved in database
+struct Product: Identifiable {
+	var id: Int
 	var designer: String
 	var title: String
 	var imageUrl: String

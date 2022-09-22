@@ -24,7 +24,7 @@
 		0B96D31628DA18B600932B72 /* CameraView-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96D31528DA18B600932B72 /* CameraView-ViewModel.swift */; };
 		0BAC551228DB109100BBAE82 /* Reel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAC551128DB109100BBAE82 /* Reel.swift */; };
 		0BAC551428DB116500BBAE82 /* LinkedProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAC551328DB116500BBAE82 /* LinkedProduct.swift */; };
-		0BAC551628DB117400BBAE82 /* ProductDto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAC551528DB117400BBAE82 /* ProductDto.swift */; };
+		0BAC551628DB117400BBAE82 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAC551528DB117400BBAE82 /* Product.swift */; };
 		0BAC551928DB171600BBAE82 /* API-Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAC551828DB171600BBAE82 /* API-Constants.swift */; };
 		0BAC551B28DB3C6A00BBAE82 /* ViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAC551A28DB3C6A00BBAE82 /* ViewExtensions.swift */; };
 		0BAC551D28DB44E400BBAE82 /* EditReelDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAC551C28DB44E400BBAE82 /* EditReelDescriptionView.swift */; };
@@ -35,6 +35,7 @@
 		0BAC552D28DBC8DB00BBAE82 /* ProductListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAC552C28DBC8DB00BBAE82 /* ProductListView.swift */; };
 		0BAC552F28DBCAAC00BBAE82 /* CheckBoxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAC552E28DBCAAC00BBAE82 /* CheckBoxButton.swift */; };
 		0BAC553228DBEA3F00BBAE82 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAC553128DBEA3F00BBAE82 /* Repository.swift */; };
+		0BB9C68A28DC601D00722A0F /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 0BB9C68928DC601D00722A0F /* SQLite */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,7 +58,7 @@
 		0B96D31528DA18B600932B72 /* CameraView-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CameraView-ViewModel.swift"; sourceTree = "<group>"; };
 		0BAC551128DB109100BBAE82 /* Reel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reel.swift; sourceTree = "<group>"; };
 		0BAC551328DB116500BBAE82 /* LinkedProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkedProduct.swift; sourceTree = "<group>"; };
-		0BAC551528DB117400BBAE82 /* ProductDto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDto.swift; sourceTree = "<group>"; };
+		0BAC551528DB117400BBAE82 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		0BAC551828DB171600BBAE82 /* API-Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API-Constants.swift"; sourceTree = "<group>"; };
 		0BAC551A28DB3C6A00BBAE82 /* ViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtensions.swift; sourceTree = "<group>"; };
 		0BAC551C28DB44E400BBAE82 /* EditReelDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditReelDescriptionView.swift; sourceTree = "<group>"; };
@@ -75,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BB9C68A28DC601D00722A0F /* SQLite in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,7 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				0BAC552928DBC7D600BBAE82 /* ProductListView-ViewModel.swift */,
-				0BAC551528DB117400BBAE82 /* ProductDto.swift */,
+				0BAC551528DB117400BBAE82 /* Product.swift */,
 				0BAC552C28DBC8DB00BBAE82 /* ProductListView.swift */,
 			);
 			path = Products;
@@ -213,6 +215,9 @@
 			dependencies = (
 			);
 			name = TheList;
+			packageProductDependencies = (
+				0BB9C68928DC601D00722A0F /* SQLite */,
+			);
 			productName = TheList;
 			productReference = 0B96D2EB28D9461B00932B72 /* TheList.app */;
 			productType = "com.apple.product-type.application";
@@ -241,6 +246,9 @@
 				Base,
 			);
 			mainGroup = 0B96D2E228D9461B00932B72;
+			packageReferences = (
+				0BB9C68828DC601D00722A0F /* XCRemoteSwiftPackageReference "SQLite.swift" */,
+			);
 			productRefGroup = 0B96D2EC28D9461B00932B72 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -283,7 +291,7 @@
 				0BAC552A28DBC7D600BBAE82 /* ProductListView-ViewModel.swift in Sources */,
 				0BAC551428DB116500BBAE82 /* LinkedProduct.swift in Sources */,
 				0BAC552528DB714000BBAE82 /* ViewControllerHolder.swift in Sources */,
-				0BAC551628DB117400BBAE82 /* ProductDto.swift in Sources */,
+				0BAC551628DB117400BBAE82 /* Product.swift in Sources */,
 				0B96D2EF28D9461B00932B72 /* TheListApp.swift in Sources */,
 				0BAC551D28DB44E400BBAE82 /* EditReelDescriptionView.swift in Sources */,
 				0B96D31428DA147900932B72 /* ContentView-ViewModel.swift in Sources */,
@@ -501,6 +509,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0BB9C68828DC601D00722A0F /* XCRemoteSwiftPackageReference "SQLite.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stephencelis/SQLite.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0BB9C68928DC601D00722A0F /* SQLite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0BB9C68828DC601D00722A0F /* XCRemoteSwiftPackageReference "SQLite.swift" */;
+			productName = SQLite;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		0B96D2F928D9461C00932B72 /* TheList.xcdatamodeld */ = {

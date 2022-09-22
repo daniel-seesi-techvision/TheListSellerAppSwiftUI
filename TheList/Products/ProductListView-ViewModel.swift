@@ -12,11 +12,9 @@ import CoreData
 extension ProductListView{
 	
 	@MainActor class ViewModel : ObservableObject {
-		@Environment(\.managedObjectContext) var dbContext
-		@Published var products = [Product]()
-		@Published var filteredProduct = [Product]()
-		
-		
+		@Published var products = [ProductData]()
+		@Published var filteredProduct = [ProductData]()
+				
 		func getProducts() async {
 			let entities = getAllProducts()
 			if entities.count == 0 {
@@ -27,15 +25,8 @@ extension ProductListView{
 			}
 		}
 		
-		func getAllProducts() -> [ProductData] {
-			do {
-				let fetchRequest = NSFetchRequest<ProductData>(entityName: "ProductData")
-				let products = try dbContext.fetch(fetchRequest)
-				return products
-			} catch {
-				print("Failed to fetch products: \(error)")
-				return []
-			}
+		func getAllProducts() -> [Product] {
+			return Repository.shared.getAllProducts()
 		}
 		
 		// TODO persist to database
@@ -61,24 +52,38 @@ extension ProductListView{
 		}
 		
 		// MARK: TODO Use Generic functions in the future
-		func createProducts(dtos: [ProductDto]) -> [Product] {
+		func createProducts(dtos: [ProductDto]) -> [ProductData] {
+			var count = 0
 			return dtos.map({ dto in
-				let product = Product(id: UUID(),selected: false,designer: dto.designer, title: dto.title, imageUrl: dto.imageUrl)
-				let entity = ProductData(context: dbContext)
-				entity.id = product.id
-				entity.designer = product.designer
-				entity.title = product.title
-				entity.imageUrl = product.imageUrl
-				try? dbContext.save()
+				count += 1;
+				let product = ProductData(id: count,selected: false,designer: dto.designer, title: dto.title, imageUrl: dto.imageUrl)
+				Repository.shared.createProduct(product)
 				return product
 			})
 		}
 		
-		func getProductsFromDatabase (_ entities: [ProductData]) -> [Product] {
-			
+		func getProductsFromDatabase (_ entities: [Product]) -> [ProductData] {
 			return entities.map({ entity in
-				return Product(id: entity.id!,selected: false,designer: entity.designer!,title: entity.title!,imageUrl: entity.imageUrl!)
+				return ProductData(id: entity.id,selected: false,designer: entity.designer,title: entity.title,imageUrl: entity.imageUrl)
 			})
+		}
+		
+		func filterProduct(_ search: String){
+			if(search == ""){
+				filteredProduct = products
+				return
+			}
+			var array = [ProductData]()
+			for product in products {
+				let searchString = search.lowercased()
+				let designer = product.designer.lowercased()
+				let title = product.title.lowercased()
+				if designer.contains(searchString) || title.contains(searchString){
+					array.append(product)
+					
+				}
+			}
+			filteredProduct = array
 		}
 	}
 	
