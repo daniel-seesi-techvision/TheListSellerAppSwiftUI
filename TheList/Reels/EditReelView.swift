@@ -25,7 +25,7 @@ struct EditReelView: View {
 				VStack{
 					HStack{
 						Spacer()
-						FloatingButton(image: "close",tapAction: {
+						FloatingButton(image: ImageResources.CLOSE,tapAction: {
 							dismiss()
 						})
 						.padding([.trailing,.top])
@@ -36,9 +36,9 @@ struct EditReelView: View {
 							{
 								Spacer()
 								if vm.reel.description != "" {
-									Button(action: {}, label: {Image("small-check")}).tint(.white)
+									Button(action: {}, label: {Image(ImageResources.SMALL_CHECK)}).tint(.white)
 								}else{
-									Button(action: {}, label: {Text("Add Description")}).tint(.white)
+									Button(action: {}, label: {Text(StringConstants.DESCRIPTION_LABEL)}).tint(.white)
 								}
 								Button(action: {
 									vm.presentModal()
@@ -50,7 +50,7 @@ struct EditReelView: View {
 											completion: { vm.validateReel() } )
 									}
 								},label: {
-									Image("description")
+									Image(ImageResources.DESCRIPTION)
 										.resizable()
 										.frame(width: 20, height: 10, alignment: .center)
 								})
@@ -61,27 +61,27 @@ struct EditReelView: View {
 							HStack
 							{
 								Spacer()
-								Button(action: {}, label: {Text("Add Tags")}).tint(.white)
-								FloatingButton(image: "tag",tapAction: { })
+								Button(action: {}, label: {Text(StringConstants.TAG_LABEL)}).tint(.white)
+								FloatingButton(image: ImageResources.TAG,tapAction: { })
 							}.opacity(vm.inPreview ? 0 : 1)
 							HStack
 							{
 								Spacer()
 								if vm.linkedProducts.count > 0 {
-									Button(action: {}, label: {Image("small-check")}).tint(.white)
+									Button(action: {}, label: {Image(ImageResources.SMALL_CHECK)}).tint(.white)
 								}
 								else{
-									Button(action: {}, label: {Text("Link Products")}).tint(.white)
+									Button(action: {}, label: {Text(StringConstants.LINK_PRODUCT_LABEL)}).tint(.white)
 								}
-								FloatingButton(image: "hanger",tapAction: {
+								FloatingButton(image: ImageResources.HANGER,tapAction: {
 									self.shoudldPickProduct = true
 								})
 							}.opacity(vm.inPreview ? 0 : 1)
 							HStack
 							{
 								Spacer()
-								Button(action: {}, label: {Text("View Preview")}).tint(.white).opacity(vm.inPreview ? 0 : 1)
-								FloatingButton(image: "eye",tapAction: {vm.viewPreview() })
+								Button(action: {}, label: {Text(StringConstants.PREVIEW_REEL_LABEL)}).tint(.white).opacity(vm.inPreview ? 0 : 1)
+								FloatingButton(image: ImageResources.EYE,tapAction: {vm.viewPreview() })
 							}
 						}
 					}
@@ -118,7 +118,7 @@ struct EditReelView: View {
 			.cornerRadius(10)
 			
 			HStack{
-				Text("Add a description and a minimum of 3 tags to upload post.")
+				Text(StringConstants.CAMAERA_INSTRUCTION_3)
 					.font(.system(size: 14))
 					.fontWeight(.regular)
 					.multilineTextAlignment(.leading)
@@ -129,13 +129,13 @@ struct EditReelView: View {
 					Button(action: {
 						if vm.isValidReel {
 							vm.saveReel(photo: $capturedPhoto,completion: {
-								// navigate to root view
+								//TODO navigate to root view
 							})
 						}
 					}, label: {
-						Text("Upload")
+						Text(StringConstants.UPLOAD)
 						if vm.isValidReel {
-							Image("check-black")
+							Image(ImageResources.BLACK_CHECK)
 						}
 					})
 				}

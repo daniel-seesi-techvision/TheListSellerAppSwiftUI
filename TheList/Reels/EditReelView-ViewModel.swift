@@ -32,11 +32,11 @@ extension EditReelView {
 			
 			var reelEntity = Reel(id: UUID(), description: reel.description)
 			
-			if let data = image.jpegData(compressionQuality: 0.8) {
-				let filePath = getDocumentsDirectory().appendingPathComponent("\(Date()).png")
-				try? data.write(to: filePath)
-				reelEntity.imageUrl = filePath.absoluteString
-			}
+			let fileName = "\(Date()).png"
+			let filePath = DocumentDirectory.getDocumentsDirectory().appendingPathComponent(fileName)
+			filePath.saveImage(image)
+			reelEntity.imageUrl = fileName;
+			
 			Repository.shared.createReel(reelEntity)
 			print("Saved Reel")
 			
@@ -44,11 +44,6 @@ extension EditReelView {
 			for linkedProduct in linkedProducts {
 				Repository.shared.createLinkedProduct(reelId: reelEntity.id!, productId: linkedProduct.id)
 			}
-		}
-		
-		func getDocumentsDirectory() -> URL {
-			let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-			return paths[0]
 		}
 	}
 }

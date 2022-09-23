@@ -21,7 +21,7 @@ struct CameraView : View {
 				VStack{
 					HStack{
 						Spacer()
-						FloatingButton(image: "close",tapAction: {
+						FloatingButton(image: ImageResources.CLOSE,tapAction: {
 							dismiss()
 						})
 						.padding([.trailing,.top])
@@ -36,11 +36,11 @@ struct CameraView : View {
 						Button(action: {
 							cameraService.capturePhoto(with: vm.getCameraSetting())
 						}, label: {
-							Image("shutter").resizable().aspectRatio(contentMode: .fill)
+							Image(ImageResources.SHUTTER).resizable().aspectRatio(contentMode: .fill)
 						})
 						.frame(width: 90, height: 90)
 						Spacer();
-						FloatingButton(image: "switch",tapAction: {
+						FloatingButton(image: ImageResources.SWITCH,tapAction: {
 							cameraService.switchCamera(completion: { ex in
 								vm.handleError(err: ex)
 							})
@@ -55,9 +55,9 @@ struct CameraView : View {
 			.cornerRadius(10)
 
 			HStack(alignment: .center){
-				NavButton(image: "add-photo",action: {}).padding(.leading,20)
+				NavButton(image: ImageResources.ADD_PHOTO,action: {}).padding(.leading,20)
 				Spacer()
-				Text("Take a picture or tap and hold to take a 30 sec video.")
+				Text(StringConstants.CAMERA_INSTRUCTION_2)
 					.font(.system(size: 14))
 					.fontWeight(.regular)
 					.multilineTextAlignment(.trailing)
@@ -67,7 +67,7 @@ struct CameraView : View {
 			}
 			
 		}
-		.background(Color.black)
+		.background(.black)
 		.navigationBarHidden(true)
 		.enableLightStatusBar()
 	}

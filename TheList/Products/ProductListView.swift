@@ -24,7 +24,7 @@ struct ProductListView: View {
 	var body: some View {
 		VStack{
 			ZStack (alignment: .center){
-				Text("Add Products to Reel")
+				Text(StringConstants.PRODUCT_LIST_INSTRUCTION_1)
 					.foregroundColor(.black)
 					.font(.system(size: 16))
 					.fontWeight(.bold)
@@ -34,14 +34,14 @@ struct ProductListView: View {
 						saveLinkedProducts()
 						dismiss()
 					},label: {
-						Image("close-black")
+						Image(ImageResources.BLACK_CLOSED)
 					})
 					.background(.clear)
 					.padding([.trailing])
 				}
 			}.padding()
 			HStack{
-				TextField("Search", text: $searchText).onChange(of: $searchText.wrappedValue, perform: {newValue in
+				TextField(StringConstants.SEARCH_PRODUCT_PLACEHOLDER, text: $searchText).onChange(of: $searchText.wrappedValue, perform: {newValue in
 					vm.filterProduct(newValue)
 				})
 				.accentColor(.black)
@@ -92,7 +92,7 @@ struct ProductListView: View {
 					saveLinkedProducts()
 					dismiss()
 				}, label: {
-					Text("SAVE SELECTION")
+					Text(StringConstants.SAVE_SELECTION)
 						.foregroundColor(.white)
 						.font(.system(size: 16))
 						.fontWeight(.bold)

@@ -34,9 +34,3 @@ struct FloatingButton: View {
 		 }
     }
 }
-
-struct FloatingButton_Previews: PreviewProvider {
-    static var previews: some View {
-        FloatingButton(image: "settings")
-    }
-}

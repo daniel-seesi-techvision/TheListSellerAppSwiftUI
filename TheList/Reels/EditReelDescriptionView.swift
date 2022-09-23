@@ -25,7 +25,7 @@ struct EditReelDescriptionView: View {
 		VStack{
 			HStack{
 				Spacer()
-				FloatingButton(image: "close",tapAction: {
+				FloatingButton(image: ImageResources.CLOSE,tapAction: {
 					completion()
 					self.viewControllerHolder?.dismiss(animated: true, completion: {
 						self.isModalPresented = false
@@ -66,7 +66,7 @@ struct EditReelDescriptionView: View {
 					completion()
 				})
 			},label: {
-				Image("check")
+				Image(ImageResources.CHECK)
 					.resizable()
 					.frame(width: 35, height: 35, alignment: .center)
 			})

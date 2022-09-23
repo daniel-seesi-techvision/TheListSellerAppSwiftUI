@@ -37,7 +37,7 @@ struct MissionControlButton: View {
 
 struct MissionControlButton_Previews: PreviewProvider {
     static var previews: some View {
-        MissionControlButton(image: "settings")
+		 MissionControlButton(image: ImageResources.SETTINGS)
             .previewInterfaceOrientation(.portrait)
     }
 }

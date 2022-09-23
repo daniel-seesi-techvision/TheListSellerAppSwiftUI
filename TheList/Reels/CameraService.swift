@@ -144,8 +144,6 @@ class CameraService {
 				}
 				
 				previewCameraLayer!.session = session;
-//				previewCameraLayer!.connection?.automaticallyAdjustsVideoMirroring = false
-//				previewCameraLayer!.connection?.isVideoMirrored = true
 				
 				session.startRunning()
 				

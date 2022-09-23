@@ -17,6 +17,7 @@ extension ContentView{
 		@Published private(set) var reels = [Reel]()
 		init(){
 			reels = Repository.shared.getAllReels()
+			hasCollection = reels.count > 0
 		}
 		func setFeedActive() {
 			isFeedActive = true

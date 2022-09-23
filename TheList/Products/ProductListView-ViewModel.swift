@@ -30,7 +30,7 @@ extension ProductListView{
 		
 		// TODO persist to database
 		func loadProduct() async {
-			guard let url = URL(string: API.BASE_URL) else{
+			guard let url = URL(string: APIConstant.BASE_URL) else{
 				print("Invalid URL")
 				return;
 			}

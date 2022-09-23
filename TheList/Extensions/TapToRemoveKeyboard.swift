@@ -18,9 +18,7 @@ struct TapToRemoveKeyboard: ViewModifier{
 	func body(content: Content) -> some View {
 		content.toolbar {
 			ToolbarItem(placement: .keyboard) {
-				Button("Done") {
-					UIApplication.shared.endEditing()
-				}
+				Button(action: {UIApplication.shared.endEditing()}, label:{ Text(StringConstants.DONE)
 			}
 		}
 	}

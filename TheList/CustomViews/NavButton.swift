@@ -25,6 +25,6 @@ struct NavButton: View {
 struct NavButton_Previews: PreviewProvider {
     static var previews: some View {
 
-		 NavButton(image: "setting",action: {})
+		 NavButton(image: ImageResources.SETTINGS,action: {})
     }
 }

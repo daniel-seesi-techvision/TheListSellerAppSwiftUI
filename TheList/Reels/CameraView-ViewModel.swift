@@ -13,7 +13,7 @@ extension CameraView{
 	@MainActor class ViewModel : ObservableObject {
 		
 		@Published private(set) var flashMode = AVCaptureDevice.FlashMode.off
-		@Published private(set) var flashImage = "flash-off"
+		@Published private(set) var flashImage = ImageResources.FLASH_OFF
 		@Published var isEditting = false;
 		@Published var capturedPhoto: UIImage? = nil
 		
@@ -21,16 +21,16 @@ extension CameraView{
 			switch flashMode {
 				case .off:
 					flashMode = .on
-					flashImage = "flash-on"
+					flashImage = ImageResources.FLASH_ON
 				case .on:
 					flashMode = .auto
-					flashImage = "flash-auto"
+					flashImage = ImageResources.FLASH_AUTO
 				case .auto:
 					flashMode = .off
-					flashImage = "flash-off"
+					flashImage = ImageResources.FLASH_OFF
 				@unknown default:
 					flashMode = .on
-					flashImage = "flash-on"
+					flashImage = ImageResources.FLASH_ON
 			}
 		}
 		
