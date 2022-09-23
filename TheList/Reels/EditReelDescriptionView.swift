@@ -10,12 +10,13 @@ import UIKit
 
 struct EditReelDescriptionView: View {
 	@Environment(\.viewController) private var viewControllerHolder: UIViewController?
-	
+	// FIXME: Move to ViewModel
 	@Binding var description: String
 	@Binding var isModalPresented: Bool
 	@State var innerDescription = ""
 	@State private var charactersRemaining = 140
 	var completion: ()-> Void
+	
 	func getRemainingCharacterLength() {
 		self.charactersRemaining = 140 - innerDescription.count
 	}
@@ -29,7 +30,7 @@ struct EditReelDescriptionView: View {
 					completion()
 					self.viewControllerHolder?.dismiss(animated: true, completion: {
 						self.isModalPresented = false
-						completion()
+						completion()						
 					})
 				})
 				.padding([.trailing,.top])

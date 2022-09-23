@@ -14,6 +14,7 @@
 		0B71C22328DD31A800E05396 /* FileManagerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B71C22228DD31A800E05396 /* FileManagerExtension.swift */; };
 		0B71C22528DD39DA00E05396 /* StringConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B71C22428DD39DA00E05396 /* StringConstant.swift */; };
 		0B71C22728DD9A4100E05396 /* MainNavigationViewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B71C22628DD9A4100E05396 /* MainNavigationViewView.swift */; };
+		0B71C22928DD9AB000E05396 /* MainNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B71C22828DD9AB000E05396 /* MainNavigationView.swift */; };
 		0B96D2EF28D9461B00932B72 /* TheListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96D2EE28D9461B00932B72 /* TheListApp.swift */; };
 		0B96D2F128D9461B00932B72 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B96D2F028D9461B00932B72 /* ContentView.swift */; };
 		0B96D2F328D9461C00932B72 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0B96D2F228D9461C00932B72 /* Assets.xcassets */; };
@@ -50,6 +51,7 @@
 		0B71C22228DD31A800E05396 /* FileManagerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerExtension.swift; sourceTree = "<group>"; };
 		0B71C22428DD39DA00E05396 /* StringConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConstant.swift; sourceTree = "<group>"; };
 		0B71C22628DD9A4100E05396 /* MainNavigationViewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationViewView.swift; sourceTree = "<group>"; };
+		0B71C22828DD9AB000E05396 /* MainNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationView.swift; sourceTree = "<group>"; };
 		0B96D2EB28D9461B00932B72 /* TheList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B96D2EE28D9461B00932B72 /* TheListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheListApp.swift; sourceTree = "<group>"; };
 		0B96D2F028D9461B00932B72 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				0B96D31228D9E3E200932B72 /* Info.plist */,
 				0B96D2F228D9461C00932B72 /* Assets.xcassets */,
 				0B96D2EE28D9461B00932B72 /* TheListApp.swift */,
+				0B71C22828DD9AB000E05396 /* MainNavigationView.swift */,
 				0B71C22128DD317B00E05396 /* Utils */,
 				0BAC553028DBEA2200BBAE82 /* Data */,
 				0B96D2F428D9461C00932B72 /* Preview Content */,
@@ -300,6 +303,7 @@
 				0B71C21E28DCC37E00E05396 /* DatabaseConstants.swift in Sources */,
 				0BAC552F28DBCAAC00BBAE82 /* CheckBoxButton.swift in Sources */,
 				0BAC553228DBEA3F00BBAE82 /* Repository.swift in Sources */,
+				0B71C22928DD9AB000E05396 /* MainNavigationView.swift in Sources */,
 				0BAC551228DB109100BBAE82 /* Reel.swift in Sources */,
 				0BAC551928DB171600BBAE82 /* APIConstants.swift in Sources */,
 				0B96D30C28D9B20200932B72 /* ReelCameraViewController.swift in Sources */,

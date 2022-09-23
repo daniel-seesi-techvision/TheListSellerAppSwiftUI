@@ -11,8 +11,6 @@ import UIKit
 struct EditReelView: View {
 	@Environment(\.dismiss) var dismiss
 	@Environment(\.viewController) private var viewControllerHolder: UIViewController?
-	
-	@EnvironmentObject var appState: AppState
 	@StateObject private var vm = ViewModel()
 	@State private var shoudldPickProduct = false;
 	@Binding var capturedPhoto: UIImage?
@@ -129,9 +127,8 @@ struct EditReelView: View {
 					Button(action: {
 						if vm.isValidReel {
 							vm.saveReel(photo: $capturedPhoto,completion: {
-								// FIXME: navigate to root view
-								self.appState.moveToStore = true
-							})
+							})							
+							AppState.shared.moveToStore = true
 						}
 					}, label: {
 						Text(StringConstants.UPLOAD)

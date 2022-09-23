@@ -12,7 +12,7 @@ struct TheListApp: App {
 	let appState = AppState.shared
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainNavigationView()
 				  .environmentObject(appState)
         }
     }
