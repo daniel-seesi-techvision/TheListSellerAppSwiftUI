@@ -14,19 +14,20 @@ extension UIApplication {
 	}
 }
 
-struct TapToRemoveKeyboard: ViewModifier{
+struct TapToRemoveKeyboard: ViewModifier {
 	func body(content: Content) -> some View {
 		content.toolbar {
 			ToolbarItem(placement: .keyboard) {
 				Button(action: {UIApplication.shared.endEditing()}, label:{ Text(StringConstants.DONE)
+				})
 			}
 		}
 	}
 }
-
 
 extension View {
 	func removeKeyboardOnTap() -> some View {
 		self.modifier(TapToRemoveKeyboard())
 	}
 }
+
