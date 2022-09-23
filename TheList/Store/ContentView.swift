@@ -9,15 +9,15 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
-
+	
 	@StateObject private var vm = ViewModel()
 	var layout = [ GridItem(.flexible()),GridItem(.flexible())]
-
+	
 	var body: some View {
 		VStack {
 			VStack {
 				Spacer()
-				Text("Milan")
+				Text("Milan").tint(.black)
 				Spacer()
 				HStack (spacing: 0 ){
 					Button(action: {
@@ -53,7 +53,6 @@ struct ContentView: View {
 			}
 			Spacer()
 			VStack {
-				Spacer()
 				ZStack{
 					if vm.hasCollection {
 						ScrollView(.vertical) {
@@ -77,9 +76,11 @@ struct ContentView: View {
 								.fontWeight(.regular)
 								.foregroundColor(Color.gray)
 								.padding([.top],5)
-								.padding([.leading, .trailing])
-						}.opacity(vm.isFeedActive ? 1 : 0)
+								.padding([.leading, .trailing],20)
+						}.padding(.bottom,30)
+							.opacity(vm.isFeedActive ? 1 : 0)
 					}
+					// FIXME: Use TabView
 					VStack {
 						Spacer()
 						HStack(){
@@ -121,10 +122,10 @@ struct ContentView: View {
 		}
 		.navigationBarBackButtonHidden(true)
 		.onAppear(perform: {
-			vm.loadReels()			
+			vm.loadReels()
 		})
-//		.enableDarkStatusBar()
-//		.enableDarkStatusBar()
+		//		.enableDarkStatusBar()
+		//		.enableDarkStatusBar()
 	}
 }
 
