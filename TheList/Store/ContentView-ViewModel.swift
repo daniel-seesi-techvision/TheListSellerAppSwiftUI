@@ -30,5 +30,11 @@ extension ContentView{
 		func showCamera(){
 			isCameraViewPresented = true;
 		}
+		
+		func loadImage(imageUrl: String) -> UIImage {
+			var uiImage: UIImage?
+			DocumentDirectory.getDocumentsDirectory().appendingPathComponent(imageUrl).loadImage(&uiImage)
+			return uiImage!
+		}
 	}
 }

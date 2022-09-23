@@ -13,3 +13,8 @@ class DocumentDirectory {
 		return paths[0]
 	}
 }
+
+class AppState : ObservableObject {
+	static let shared = AppState()
+	@Published var moveToStore: Bool  = false
+}

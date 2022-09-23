@@ -9,17 +9,10 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
+	@EnvironmentObject var appState: AppState
 	@StateObject private var vm = ViewModel()
-	init() {
-		//		let navBarAppearance = UINavigationBar.appearance()
-		//		navBarAppearance.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
-		//		navBarAppearance.titleTextAttributes = [.foregroundColor: UIColor.black]
-	}
-	func loadImage(imageUrl: String) -> UIImage {
-		var uiImage: UIImage?
-		DocumentDirectory.getDocumentsDirectory().appendingPathComponent(imageUrl).loadImage(&uiImage)
-		return uiImage!
-	}
+	@State var isViewActive: Bool = false	
+	
 	var layout = [ GridItem(.flexible()),GridItem(.flexible())]
 	var body: some View {
 		NavigationView {
@@ -68,7 +61,7 @@ struct ContentView: View {
 							ScrollView(.vertical) {
 								LazyVGrid (columns: layout){
 									ForEach(vm.reels, id: \.self) { item in
-										Image(uiImage: loadImage(imageUrl: item.imageUrl!))
+										Image(uiImage: vm.loadImage(imageUrl: item.imageUrl!))
 											.resizable()
 											.aspectRatio(contentMode: .fill)
 											.background(.clear)
@@ -130,6 +123,13 @@ struct ContentView: View {
 			}
 		}
 		.enableDarkStatusBar()
+		
+		.onReceive(self.appState.$moveToStore){ moveToStore in
+			if moveToStore {
+				self.isViewActive = false
+				self.appState.moveToStore = false
+			}
+		}
 	}
 }
 
