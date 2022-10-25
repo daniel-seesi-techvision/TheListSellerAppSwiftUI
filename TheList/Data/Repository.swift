@@ -8,7 +8,7 @@ import CoreData
 import Foundation
 import SQLite
 
-// I had issues seting up CoreData. --> Will move to CoreData in the future.
+// FIXME: I had issues seting up CoreData. --> Will move to CoreData in the future.
 class Repository {
 	
 	static let shared = Repository()
